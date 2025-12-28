@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -245,6 +245,8 @@ app.post('/api/reset', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Memory Allocator Web API running on http://localhost:${PORT}`);
-    console.log(`Open http://localhost:${PORT} in your browser to access the interface`);
+    console.log(`Memory Allocator Web API running on port ${PORT}`);
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(`Open http://localhost:${PORT} in your browser`);
+    }
 });

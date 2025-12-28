@@ -1,5 +1,20 @@
 # 🚀 TRANSFORMATION COMPLETE - Your Memory Allocator is Ready!
 
+## ⚡ Quick Deploy (Get a Shareable Link in 5 Minutes)
+
+Want to share with friends instantly? **Deploy on Render.com:**
+
+👉 **[See RENDER_DEPLOY.md for instant deployment](RENDER_DEPLOY.md)** 👈
+
+In 5 minutes, you'll have a live link like:
+```
+https://memory-allocator-xxxxx.onrender.com
+```
+
+Send it to friends - they can use immediately on phone/laptop! ✨
+
+---
+
 ## What We've Built For You
 
 Your simple C++ Memory Allocator has been **transformed into a professional educational platform** with:

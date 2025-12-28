@@ -11,7 +11,7 @@ Get the Memory Allocator Simulator running in 5 minutes!
 ### Installation
 ```bash
 # 1. Navigate to project directory
-cd "c:\Users\vvad0\OneDrive\Desktop\Memory Allocator"
+cd your-project-directory
 
 # 2. Install dependencies
 npm install

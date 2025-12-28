@@ -21,7 +21,7 @@ heroku login
 
 ### Step 3: Create Heroku App
 ```bash
-cd "c:\Users\vvad0\OneDrive\Desktop\Memory Allocator"
+cd your-project-directory
 heroku create your-unique-app-name
 ```
 
