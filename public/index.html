@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Allocator - Interactive Learning Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Memory Allocator Simulator</h1>
+            <p>Interactive Educational Tool - Learn how Operating Systems manage memory</p>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-content">
+            <!-- Left Panel - Controls -->
+            <div class="left-panel">
+                <section class="control-section">
+                    <h2>Memory Operations</h2>
+
+                    <div class="control-group">
+                        <label for="allocateSize">Allocate Size (bytes):</label>
+                        <input type="number" id="allocateSize" placeholder="Enter size" min="1" value="1024">
+                        <button onclick="allocateMemory()">Allocate</button>
+                    </div>
+                </section>
+
+                <section class="control-section">
+                    <h2>Allocation Strategy</h2>
+                    <div class="strategy-buttons">
+                        <button class="strategy-btn active" onclick="setStrategy('FIRST_FIT')">
+                            First Fit
+                        </button>
+                        <button class="strategy-btn" onclick="setStrategy('BEST_FIT')">
+                            Best Fit
+                        </button>
+                    </div>
+                    <p class="strategy-info" id="strategyInfo">
+                        <strong>First Fit:</strong> Allocates the first block that fits. Fast but may cause
+                        fragmentation.
+                    </p>
+                </section>
+
+                <section class="control-section">
+                    <h2>Quick Actions</h2>
+                    <button onclick="runDemo()">Run Demo</button>
+                    <button onclick="resetMemory()">Reset All</button>
+                </section>
+
+                <section class="control-section">
+                    <h2>Allocated Blocks</h2>
+                    <div id="blocksList" class="blocks-list"></div>
+                </section>
+            </div>
+
+            <!-- Right Panel - Visualization -->
+            <div class="right-panel">
+                <!-- Statistics -->
+                <section class="stats-section">
+                    <h2>Memory Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <label>Total Memory:</label>
+                            <span id="totalMemory">1.0 MB</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Allocated:</label>
+                            <span id="allocatedMem">0 bytes</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Free:</label>
+                            <span id="freeMem">1.0 MB</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Allocated Blocks:</label>
+                            <span id="allocBlocks">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Free Blocks:</label>
+                            <span id="freeBlocks">1</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Fragmentation:</label>
+                            <span id="fragmentation">0.0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Largest Free Block:</label>
+                            <span id="largestFree">1.0 MB</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Allocated %:</label>
+                            <span id="allocPercent">0%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Memory Map -->
+                <section class="visualization-section">
+                    <h2>Memory Map Visualization</h2>
+                    <p class="map-info">Each row represents the memory layout. Green = Free, Blue = Allocated</p>
+                    <div id="memoryMap" class="memory-map"></div>
+                </section>
+
+                <!-- Block Details -->
+                <section class="details-section">
+                    <h2>Block Details</h2>
+                    <div id="blockDetails" class="block-details"></div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Learning Guide -->
+        <section class="learning-guide">
+            <h2>Learning Guide</h2>
+            <details>
+                <summary><strong>What is Memory Allocation?</strong></summary>
+                <p>
+                    Memory allocation is the process of assigning memory locations to programs and data.
+                    Modern operating systems use sophisticated algorithms to manage this efficiently.
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>First Fit Algorithm</strong></summary>
+                <p>
+                    The First Fit algorithm scans through memory blocks and allocates the first block
+                    large enough to fit the requested size. This is simple and fast, but can waste space
+                    and lead to fragmentation.
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>Best Fit Algorithm</strong></summary>
+                <p>
+                    Best Fit searches through all free blocks and allocates the smallest one that can fit
+                    the requested size. This reduces wasted space per allocation but is slower and can create
+                    many tiny unusable fragments.
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>Memory Fragmentation</strong></summary>
+                <p>
+                    Fragmentation occurs when free memory is split into many small blocks that are too small
+                    to be useful. This wastes memory and reduces performance. Higher fragmentation % means
+                    the largest free block is much smaller than the total free memory.
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>Try This Experiment</strong></summary>
+                <p>
+                    <strong>Step 1:</strong> Use First Fit and allocate three blocks: 100KB, 10KB, 100KB<br>
+                    <strong>Step 2:</strong> Deallocate the middle block (10KB)<br>
+                    <strong>Step 3:</strong> Try to allocate 50KB - First Fit will use the 100KB block before it<br>
+                    <strong>Step 4:</strong> Switch to Best Fit and allocate another 50KB - it will fit in the 10KB gap!
+                </p>
+            </details>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

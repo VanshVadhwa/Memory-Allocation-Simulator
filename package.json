@@ -1,0 +1,24 @@
+{
+    "name": "memory-allocator-web",
+    "version": "1.0.0",
+    "description": "Interactive Memory Allocator Educational Tool - Web Version",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "memory",
+        "allocator",
+        "operating-systems",
+        "education",
+        "visualization"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "body-parser": "^1.20.2"
+    }
+}
